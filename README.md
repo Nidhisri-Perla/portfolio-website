@@ -31,7 +31,6 @@ Add project demo links and animations
 
 Author:-
 Name: Nidhisri
-Role: Front-End Developer
-Email: youremail@example.com
+Email: nidhisriperla@gmail.com
 
 GitHub: github.com/yourusername
