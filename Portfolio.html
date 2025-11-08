@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <style>
+    /* ==== BASIC RESET ==== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #222;
+      background-color: #f8f9fa;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ==== HEADER ==== */
+    header {
+      position: fixed;
+      width: 100%;
+      background: #111;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      z-index: 1000;
+    }
+
+    header .logo {
+      font-size: 1.5em;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00bcd4;
+    }
+
+    /* ==== HERO SECTION ==== */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url('https://images.unsplash.com/photo-1519389950473-47ba0277781c') no-repeat center/cover;
+      color: white;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .hero button {
+      padding: 10px 25px;
+      font-size: 1em;
+      border: none;
+      background: #00bcd4;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background: #0097a7;
+    }
+
+    /* ==== ABOUT ==== */
+    .about {
+      padding: 80px 50px;
+      background: white;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    /* ==== SKILLS ==== */
+    .skills {
+      padding: 80px 50px;
+      background: #f0f0f0;
+      text-align: center;
+    }
+
+    .skills h2 {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .skill {
+      background: white;
+      padding: 20px 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      font-weight: 600;
+    }
+
+    /* ==== PROJECTS ==== */
+    .projects {
+      padding: 80px 50px;
+      text-align: center;
+    }
+
+    .projects h2 {
+      font-size: 2.5em;
+      margin-bottom: 40px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .project {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+    }
+
+    .project img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project h3 {
+      margin: 15px;
+    }
+
+    .project p {
+      margin: 0 15px 15px;
+      color: #666;
+    }
+
+    /* ==== CONTACT ==== */
+    .contact {
+      padding: 80px 50px;
+      background: #111;
+      color: white;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+
+    .contact form {
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .contact button {
+      padding: 10px 25px;
+      border: none;
+      background: #00bcd4;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact button:hover {
+      background: #0097a7;
+    }
+
+    /* ==== FOOTER ==== */
+    footer {
+      background: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+
+    /* ==== RESPONSIVE ==== */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 10px 20px;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero h1 {
+        font-size: 2.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==== HEADER ==== -->
+  <header>
+    <div class="logo">MyPortfolio</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ==== HERO ==== -->
+  <section class="hero" id="hero">
+    <h1>Hello, I'm <span style="color:#00bcd4;">Nidhi</span></h1>
+    <p>Front-End Developer | Designer | Coder</p>
+    <button onclick="scrollToSection('about')">Explore More</button>
+  </section>
+
+  <!-- ==== ABOUT ==== -->
+  <section class="about" id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a passionate web developer who loves creating elegant and responsive designs using HTML, CSS, and JavaScript.
+      I enjoy solving problems, learning new technologies, and turning ideas into real-life web experiences.
+    </p>
+  </section>
+
+  <!-- ==== SKILLS ==== -->
+  <section class="skills" id="skills">
+    <h2>My Skills</h2>
+    <div class="skill-list">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React</div>
+      <div class="skill">Python</div>
+      <div class="skill">UI/UX Design</div>
+    </div>
+  </section>
+
+  <!-- ==== PROJECTS ==== -->
+  <section class="projects" id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1523473827532-88b0c61a4c87" alt="Project 1" />
+        <h3>Portfolio Website</h3>
+        <p>A responsive personal portfolio built with HTML, CSS, and JS.</p>
+      </div>
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3" alt="Project 2" />
+        <h3>Weather App</h3>
+        <p>Real-time weather updates using API integration and JS.</p>
+      </div>
+      <div class="project">
+        <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64" alt="Project 3" />
+        <h3>To-Do App</h3>
+        <p>Task management app with local storage and dark mode.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==== CONTACT ==== -->
+  <section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <p>Let's connect! Fill out the form below or email me at <b>youremail@example.com</b></p>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- ==== FOOTER ==== -->
+  <footer>
+    © 2025 MyPortfolio. All rights reserved.
+  </footer>
+
+  <script>
+    // Smooth scroll to section
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Simple form handling
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      alert(`Thank you, ${name}! Your message has been sent.`);
+      form.reset();
+    });
+  </script>
+</body>
+</html>
